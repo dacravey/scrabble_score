@@ -1,16 +1,13 @@
 require('sinatra')
 require('sinatra/reloader')
 also_reload('lib/**/*.rb')
-require('./lib/find_replace')
+require('./lib/scrabble_score')
 
-get('/form') do
+get('/') do
     erb(:form)
   end
 
 get('/results') do
-  # word = params.fetch('phrase')
-  # old_word = params.fetch('old_word')
-  # new_word = params.fetch('new_word')
-  # @result_string = phrase.find_and_replace(old_word, new_word)
+    @total_score = params.fetch('total_score')
   erb(:results)
     end
